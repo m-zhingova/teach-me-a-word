@@ -5,26 +5,32 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
+import { ListPageModule } from '../pages/list/list.module';
+import { QuizPageModule } from '../pages/quiz/quiz.module';
+import { WordMagangerProvider } from '../providers/word-maganger/word-maganger';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    TabsPage
   ],
   imports: [
     BrowserModule,
+    ListPageModule,
+    QuizPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    TabsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    WordMagangerProvider
   ]
 })
 export class AppModule {}
