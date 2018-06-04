@@ -14,5 +14,16 @@
 
 
 <ion-content padding>
-
+  <form (ngSubmit)="addWord(heroForm)" #heroForm="ngForm" novalidate>
+    <label>
+      Word: <input type="text" name="definition" [(ngModel)]="word.definition">
+    </label>
+    <label>
+      Translation: <input type="text" name ="translation" [(ngModel)]="word.translation">
+    </label>
+    <label>
+      Description: <textarea name="description" [(ngModel)]="word.description"></textarea>
+    </label>
+    <button>Add</button>
+  </form>
 </ion-content>

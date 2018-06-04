@@ -14,5 +14,17 @@
 
 
 <ion-content padding>
+  test
+  <div *ngFor="let word of words | async">
+    <h4>{{word.definition}}</h4>
+     <h5>Translation: {{word.translation}} </h5>
 
+    <ng-container *ngIf="word.description !== ''">
+     <p>Description: {{word.description}}</p>
+    </ng-container>
+
+    <button (click)="removeWordFromList(word.id)">Delete</button>
+    <button>Edit</button>
+    <hr>
+  </div>
 </ion-content>
